@@ -1,0 +1,34 @@
+<application>
+	
+	<name>Dooku Form Builder</name>
+	<author>Dan Vega</author>
+	<version>0.1</version>
+	<email>danvega@gmail.com</email>	
+	<description></description>
+	<license>WTFPL</license>
+    
+	<menucontributions>
+		<contribution target="rdsview">
+			<menu name="Build Form">
+				<action name="Generate From Table" handlerid="fromtable">
+					<input type="string" name="filename" label="Filename" required="true" tooltip="The name of the file that will be generated." default="myform.cfm"/>
+					<input type="dir" name="Location" label="Enter location" required="true" tooltip="Location where generated form will be stored." default="C:/www/formbuilder/forms"/>
+				</action>
+			</menu>
+		</contribution>
+		<contribution target="projectview">
+			<menu name="Form Builder">
+				<filters>
+					<filter type="file" pattern=".*\.cfc"/>
+				</filters>
+				<action name="Generate From Model" handlerid="frommodel"/>
+			</menu>
+		</contribution>
+    </menucontributions>	
+
+	<handlers>
+		<handler id="fromtable" type="CFM" filename="buildform.cfm" />
+		<handler id="frommodel" type="CFM" filename="buildform.cfm" />		
+	</handlers>
+
+</application>
